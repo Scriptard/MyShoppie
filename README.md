@@ -6,7 +6,6 @@ A simplest ecommerce app using Mern Stack
 ---
 # Todo
 ---
-# Backend
 ---
 ## Admin
 - [ ] Authentication
