@@ -8,7 +8,7 @@ exports.register = (req, res) => {
     (err, result) => {
       if (err) {
         console.log(err);
-        res.status(400).send({ err: "Error while registration" });
+        res.status(401).send({ err: "Error while registration" });
       } else if (result.length > 0) {
         res.send({
           message: "That email is already in use",
@@ -32,3 +32,4 @@ exports.register = (req, res) => {
     }
   );
 };
+
