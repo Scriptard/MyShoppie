@@ -11,7 +11,7 @@ exports.register = (req, res) => {
         res.status(401).send({ err: "Error while registration" });
       } else if (result.length > 0) {
         res.send({
-          message: "That email is already in use",
+          message: "That username is already in use",
         });
       } else {
         con.query(
@@ -20,7 +20,7 @@ exports.register = (req, res) => {
             username,
             password,
           },
-          (err, result) => {
+          (err, _) => {
             if (err) {
               res.send({ err: "Error occured" });
             } else {
