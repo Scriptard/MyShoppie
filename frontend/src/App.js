@@ -1,7 +1,10 @@
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignuPage";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
+    <div style={{ display: "flex" }}>
+     <LoginPage/>
     </div>
   );
 }
