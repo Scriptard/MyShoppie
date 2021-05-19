@@ -1,9 +1,10 @@
 const con = require("../DB/dbconnection");
+const jwt = require("jsonwebtoken");
 
 exports.register = (req, res) => {
   const { username, password } = req.body;
   con.query(
-    "SELECT * from   admin_creds WHERE username=?",
+    "SELECT * from admin_creds WHERE username=?",
     [username],
     (err, result) => {
       if (err) {
@@ -33,21 +34,39 @@ exports.register = (req, res) => {
   );
 };
 
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
   const { username, password } = req.body;
-  con.query(
-    "SELECT * from   admin_creds where username=?",
-    [username],
-    (err, result) => {
-      if (err) {
-        res.status(404).send({ err: "you got an error" });
-      } else if (result.length > 0) {
-        if (result[0].password === password) {
-          res.send({ msg: "Sucessfully log in" });
-        } else {
-          res.status(400).send({ msg: "Invalid Credentials" });
-        }
-      }
+  try {
+    if (!username || password === "") {
+      return res
+        .status(400)
+        .send({ message: "Please provide email and password" });
     }
-  );
+    con.query(
+      "SELECT * FROM admin_creds WHERE username = ?",
+      [username],
+      (err, result) => {
+        let stoken = "";
+        if (result.length < 1 || !(result[0].password === password)) {
+          return res.status(401).send({
+            message: "Invalid Credentials",
+          });
+        } else {
+          const id = result[0].id;
+          const token = jwt.sign({ id }, "THISISTOPSECRETKEY", {
+            expiresIn: "90d",
+          });
+          stoken = token;
+          const cookieOptions = {
+            expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+            httpOnly: true,
+          };
+          res.cookie("jwt", token, cookieOptions);
+        }
+        res.status(200).send({ stoken });
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };
