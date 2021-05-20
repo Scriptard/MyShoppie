@@ -1,114 +1,147 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faUser, faKey} from "@fortawesome/free-solid-svg-icons";
-import {faFacebookF, faGoogle,faInstagram,} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF,
+  faGoogle,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import styled from "styled-components";
 
-
-const AuthenticationForm = ({authTitle, authButton, authFunction}) => {
+const AuthenticationForm = ({ authTitle, authButton, authFunction }) => {
   const nameChangeHandler = (e) => {
     setUsername(e.target.value);
   };
   const passChangeHandler = (e) => {
     setPassword(e.target.value);
   };
-  const authenticate=(e)=>{
+  const authenticate = (e) => {
     e.preventDefault();
-    authFunction(username,password)
-  }
+    authFunction(username, password);
+  };
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
   return (
     <StyleForm>
-      {/* <div className="styleform_container"> */}
       <h1>{authTitle}</h1>
       <div className="icons">
-      <FontAwesomeIcon size="2x" className="ico" icon={faFacebookF}/>
-      <FontAwesomeIcon size="2x" className="ico" icon={faGoogle}/>
-      <FontAwesomeIcon size="2x" className="ico" icon={faInstagram}/>
+        <FontAwesomeIcon
+          size="1.7x"
+          style={{ color: "blue" }}
+          className="icon"
+          icon={faFacebookF}
+        />
+        <FontAwesomeIcon
+          style={{ color: "red" }}
+          size="1.7x"
+          className="icon"
+          icon={faGoogle}
+        />
+        <FontAwesomeIcon
+          size="1.7x"
+          style={{ color: "#e12121" }}
+          className="icon"
+          icon={faInstagram}
+        />
       </div>
-      <p>or use your email for registration</p>
+      <p></p>
       <div className="testinput">
-        <FontAwesomeIcon className="test" icon={faUser}/>
-      <input placeholder="Username" onChange={nameChangeHandler} value={username} type="text" >
-        
-      </input>
+        <FontAwesomeIcon className="test" icon={faUser} />
+        <input
+          placeholder="Username"
+          onChange={nameChangeHandler}
+          value={username}
+          type="text"
+        ></input>
       </div>
       <div className="testinput">
-      <FontAwesomeIcon className="test" icon={faKey}/>
-      <input placeholder="Password" onChange={passChangeHandler} type="password" value={password} />
+        <FontAwesomeIcon className="test" icon={faKey} />
+        <input
+          placeholder="Password"
+          onChange={passChangeHandler}
+          type="password"
+          value={password}
+        />
       </div>
-      <button onClick={authenticate} type="submit">{authButton}</button>
-      {/* </div> */}
+      <button onClick={authenticate} type="submit">
+        {authButton}
+      </button>
     </StyleForm>
   );
 };
 const StyleForm = styled.div`
-  /* border:2px solid green; */
-  display:flex;
-  align-items:center;
-  justify-content:space-evenly;
-  height:100vh;
- 
-  border:2px solid red;
-  height:500px;
-  width:400px;
-  /* margin:0 auto; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   display: flex;
   flex-direction: column;
-  align-items:center;
-
-  h1{
-    color:#3aaf9f;
+  align-items: center;
+  flex: 3;
+  height: 500px;
+  min-width: 350px;
+  h1 {
+    color: #3aaf9f;
   }
-   .icons{
-     /* border:2px solid red; */
-     width:30%;
-     display:flex;
-     align-items:center;
-     justify-content:space-between;
-   }
-   .ico{
-     color:#000000;
-     background:#f4f8f7;
-     border-radius:50%;
-   }
-  .testinput{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:1.2rem;
-    background-color:#f4f8f7;
+  .icons {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .test{
-    padding:-3px;
+  .icon {
+    color: #000000;
+    background: #f4f8f7;
+    width: 18px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    padding: 10px;
+    &:hover {
+      background-color: #3aaf9f;
+      color: white;
+      transition: all 0.4s ease;
+    }
   }
-  *:focus{
-    outline:none;
+  .testinput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    background-color: #f4f8f7;
+    padding-left: 10px;
   }
-  input{
-    background-color:#f4f8f7;
-    border:none;
-    display:block;
-    height:37px;
-    width:300px;
-
-    margin-left:10px;
+  .test {
+    padding: -3px;
   }
-  input::placeholder{
-    color:grey;
-    font-size:1em;
+  *:focus {
+    outline: none;
   }
-  button{
-    height:37px;
-    width:150px;
-    border-radius:25px;
-    background-color:#3aaf9f;
-   
-    border:none;
+  input {
+    background-color: #f4f8f7;
+    border: none;
+    display: block;
+    height: 37px;
+    width: 300px;
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+  input::placeholder {
+    color: grey;
+    font-size: 1em;
+  }
+  button {
+    height: 37px;
+    width: 150px;
+    border-radius: 25px;
+    background-color: #3aaf9f;
+    border: none;
     color: white;
+    &:hover {
+      background-color: white;
+      border: 1px solid #3aaf9f;
+      color: #3aaf9f;
+      transition: all 0.5s ease;
+    }
   }
-  
 `;
 export default AuthenticationForm;
