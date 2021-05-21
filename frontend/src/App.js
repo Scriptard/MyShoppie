@@ -3,12 +3,13 @@ import LoginPage from "./pages/LoginPage";
 import "./styles/globalstyle.css";
 import SignUpPage from "./pages/SignuPage";
 import { Switch, Route, useLocation } from "react-router-dom";
-
+import {AnimatePresence} from "framer-motion";
 function App() {
   const location = useLocation();
 
   return (
-    <Switch location={location} key={location.pathname}>
+  <AnimatePresence>
+      <Switch location={location} key={location.pathname}>
       <Route path="/" exact>
         <Layout>
           <SignUpPage />
@@ -21,6 +22,7 @@ function App() {
         </Layout>
       </Route>
     </Switch>
+  </AnimatePresence>
   );
 }
 const Layout = styled.div`

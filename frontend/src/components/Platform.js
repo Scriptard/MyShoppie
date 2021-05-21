@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const Platform = ({ title , platformButton, route}) => {
   // const sync1 = "SIGN IN";
-  console.log(title);
+  // console.log(title);
   return (
     <Platforms>
       <img src={logo} className="logo" alt=""></img>
@@ -56,6 +56,7 @@ const Platforms = styled.div`
       border: 1px solid #3aaf9f;
       color: #3aaf9f;
       transition: all 0.5s ease;
+      cursor:pointer;
     }
   }
   .logo {

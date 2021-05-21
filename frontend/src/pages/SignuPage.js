@@ -2,6 +2,8 @@ import Platform from "../components/Platform";
 import AuthenticationForm from "../components/Form";
 import styled from "styled-components";
 import { signup } from "../services/authService";
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation/animation";
 const SignUpPage = () => {
   const title="welcome back";
   const platformButton="SIGN IN";
@@ -10,7 +12,7 @@ const SignUpPage = () => {
   const route="/signin";
 
   return (
-    <StyleSignUpPage>
+    <StyleSignUpPage variants={pageAnimation} animate='show' initial="hidden" exit="exit">
       <Platform title={title} platformButton={platformButton} route={route} />
       <AuthenticationForm
         authButton={authButton}
@@ -21,7 +23,7 @@ const SignUpPage = () => {
   );
 };
 
-const StyleSignUpPage = styled.div`
+const StyleSignUpPage = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
