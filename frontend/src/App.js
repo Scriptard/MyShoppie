@@ -1,12 +1,11 @@
 import styled from "styled-components";
-// import LoginPage from "./pages/LoginPage";
-import SignUpPage from "./pages/SignuPage";
+import LoginPage from "./pages/LoginPage";
 import "./styles/globalstyle.css";
 
 function App() {
   return (
     <Layout>
-      <SignUpPage/>
+      <LoginPage/>
     </Layout>
   );
 }

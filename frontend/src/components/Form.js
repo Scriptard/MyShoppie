@@ -27,19 +27,19 @@ const AuthenticationForm = ({ authTitle, authButton, authFunction }) => {
       <h1>{authTitle}</h1>
       <div className="icons">
         <FontAwesomeIcon
-          size="1.7x"
+          size="1x"
           style={{ color: "blue" }}
           className="icon"
           icon={faFacebookF}
         />
         <FontAwesomeIcon
           style={{ color: "red" }}
-          size="1.7x"
+          size="1x"
           className="icon"
           icon={faGoogle}
         />
         <FontAwesomeIcon
-          size="1.7x"
+          size="1x"
           style={{ color: "#e12121" }}
           className="icon"
           icon={faInstagram}
