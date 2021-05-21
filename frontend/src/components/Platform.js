@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import logo from "../assets/img/scriptard.png";
+import {Link} from "react-router-dom";
 
-const Platform = ({ title , platformButton}) => {
+const Platform = ({ title , platformButton, route}) => {
   // const sync1 = "SIGN IN";
   console.log(title);
   return (
@@ -15,8 +16,9 @@ const Platform = ({ title , platformButton}) => {
           perferendis quasi at porro ratione, totam beatae voluptas?
         </p>
 
-        <button>{platformButton}</button>
+        <Link to={route}><button>{platformButton}</button></Link>
       </div>
+      <div className="spacediv"></div>
       <div className="spacediv"></div>
     </Platforms>
   );

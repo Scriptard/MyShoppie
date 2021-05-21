@@ -7,10 +7,11 @@ const SignUpPage = () => {
   const platformButton="SIGN IN";
   const authTitle="Create Account";
   const authButton="Signup";
+  const route="/signin";
 
   return (
     <StyleSignUpPage>
-      <Platform title={title} platformButton={platformButton} />
+      <Platform title={title} platformButton={platformButton} route={route} />
       <AuthenticationForm
         authButton={authButton}
         authTitle={authTitle}

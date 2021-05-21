@@ -7,11 +7,12 @@ const LoginPage = () => {
   const authTitle="Login";
   const authButton="Login";
   const platformButton="SIGN UP";
+  const route="/";
 
   return (
     <StyleLoginPage>
       <AuthenticationForm authTitle={authTitle} authButton={authButton} authFunction={signin}/>
-      <Platform title={title} platformButton={platformButton} />
+      <Platform title={title} platformButton={platformButton} route={route}/>
     </StyleLoginPage>
   );
 };

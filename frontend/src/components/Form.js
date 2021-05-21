@@ -77,7 +77,7 @@ const StyleForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 3;
+  flex: 2.3;
   height: 500px;
   min-width: 350px;
   h1 {
