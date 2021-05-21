@@ -1,7 +1,7 @@
 import Platform from "../components/Platform";
 import AuthenticationForm from "../components/Form";
-import bg from "../assets/svgs/bg.svg";
 import styled from "styled-components";
+import { signup } from "../services/authService";
 const SignUpPage = () => {
   const title="welcome back";
   const platformButton="SIGN IN";
@@ -10,19 +10,23 @@ const SignUpPage = () => {
 
   return (
     <StyleSignUpPage>
-      <Platform title={title} platformButton={platformButton}/>
-      <AuthenticationForm authTitle={authTitle} authButton={authButton}/>
+      <Platform title={title} platformButton={platformButton} />
+      <AuthenticationForm
+        authButton={authButton}
+        authTitle={authTitle}
+        authFunction={signup}
+      />
     </StyleSignUpPage>
   );
 };
 
 const StyleSignUpPage = styled.div`
-  height: 100vh;
-  border: 2px solid red;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background-image: url(${bg});
+  width: 800px;
+  height: 500px;
+  border: 1px solid grey;
 `;
 export default SignUpPage;
