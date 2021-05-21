@@ -1,10 +1,9 @@
 import Platform from "../components/Platform";
 import AuthenticationForm from "../components/Form";
-import bg from "../assets/svgs/bg.svg";
 import styled from "styled-components";
 import {signin} from "../services/authService"
 const LoginPage = () => {
-  const title = "hellow there";
+  const title = "Hello, there";
   const authTitle="Login";
   const authButton="Login";
 
@@ -17,12 +16,11 @@ const LoginPage = () => {
 };
 
 const StyleLoginPage = styled.div`
-  height: 100vh;
-  border: 2px solid red;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   align-items: center;
   justify-content: center;
-  background-image: url(${bg});
+  width: 800px;
+  border: 1px solid grey;
 `;
 export default LoginPage;
