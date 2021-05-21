@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import logo from "../assets/img/scriptard.png";
+import {Link} from "react-router-dom";
 
-const Platform = ({ title }) => {
-  const sync1 = "SIGN IN";
-  console.log(title);
+const Platform = ({ title , platformButton, route}) => {
+  // const sync1 = "SIGN IN";
+  // console.log(title);
   return (
     <Platforms>
       <img src={logo} className="logo" alt=""></img>
@@ -15,8 +16,9 @@ const Platform = ({ title }) => {
           perferendis quasi at porro ratione, totam beatae voluptas?
         </p>
 
-        <button>{sync1}</button>
+        <Link to={route}><button>{platformButton}</button></Link>
       </div>
+      <div className="spacediv"></div>
       <div className="spacediv"></div>
     </Platforms>
   );
@@ -54,6 +56,7 @@ const Platforms = styled.div`
       border: 1px solid #3aaf9f;
       color: #3aaf9f;
       transition: all 0.5s ease;
+      cursor:pointer;
     }
   }
   .logo {

@@ -2,20 +2,25 @@ import Platform from "../components/Platform";
 import AuthenticationForm from "../components/Form";
 import styled from "styled-components";
 import {signin} from "../services/authService"
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation/animation";
+import {Link, Route} from "react-router-dom";
 const LoginPage = () => {
-  const title = "Hello, there";
+  const title = "Hello, There";
   const authTitle="Login";
   const authButton="Login";
-
+  const platformButton="SIGN UP";
+  const route="/";
+  
   return (
-    <StyleLoginPage>
+    <StyleLoginPage variants={pageAnimation} animate='show' initial="hidden" exit="exit">
       <AuthenticationForm authTitle={authTitle} authButton={authButton} authFunction={signin}/>
-      <Platform title={title} />
+      <Platform title={title} platformButton={platformButton} route={route}/>
     </StyleLoginPage>
   );
 };
-
-const StyleLoginPage = styled.div`
+//styleloginpage is now made motion.div itself.
+const StyleLoginPage = styled(motion.div)`
   display: flex;
   flex-wrap: wrap-reverse;
   align-items: center;

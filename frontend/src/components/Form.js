@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
+// import {Link, Route} from "react-router-dom";
 import {
   faFacebookF,
   faGoogle,
@@ -8,7 +9,7 @@ import {
 import { useState } from "react";
 import styled from "styled-components";
 
-const AuthenticationForm = ({ authTitle, authButton, authFunction }) => {
+const AuthenticationForm = ({ authTitle, authButton, authFunction, routes }) => {
   const nameChangeHandler = (e) => {
     setUsername(e.target.value);
   };
@@ -64,9 +65,12 @@ const AuthenticationForm = ({ authTitle, authButton, authFunction }) => {
           value={password}
         />
       </div>
+      {/* <Link to={routes}> */}
       <button onClick={authenticate} type="submit">
         {authButton}
       </button>
+      {/* </Link> */}
+      {/* <Link to={route}><button>{platformButton}</button></Link> */}
     </StyleForm>
   );
 };
@@ -77,7 +81,7 @@ const StyleForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 3;
+  flex: 2.3;
   height: 500px;
   min-width: 350px;
   h1 {
@@ -141,6 +145,7 @@ const StyleForm = styled.div`
       border: 1px solid #3aaf9f;
       color: #3aaf9f;
       transition: all 0.5s ease;
+      cursor:pointer;
     }
   }
 `;
