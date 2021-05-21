@@ -3,10 +3,15 @@ import AuthenticationForm from "../components/Form";
 import bg from "../assets/svgs/bg.svg";
 import styled from "styled-components";
 const SignUpPage = () => {
+  const title="welcome back";
+  const platformButton="SIGN IN";
+  const authTitle="Create Account";
+  const authButton="Signup";
+
   return (
     <StyleSignUpPage>
-      <Platform />
-      <AuthenticationForm />
+      <Platform title={title} platformButton={platformButton}/>
+      <AuthenticationForm authTitle={authTitle} authButton={authButton}/>
     </StyleSignUpPage>
   );
 };

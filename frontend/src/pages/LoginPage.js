@@ -7,11 +7,12 @@ const LoginPage = () => {
   const title = "hellow there";
   const authTitle="Login";
   const authButton="Login";
+  const platformButton="SIGN UP";
 
   return (
     <StyleLoginPage>
       <AuthenticationForm authTitle={authTitle} authButton={authButton} authFunction={signin}/>
-      <Platform title={title} />
+      <Platform title={title} platformButton={platformButton} />
     </StyleLoginPage>
   );
 };

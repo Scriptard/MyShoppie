@@ -5,7 +5,10 @@ import "./styles/globalstyle.css";
 import SignUpPage from "./pages/SignuPage";
 function App() {
   return (
+    <div>
    <LoginPage/>
+   <SignUpPage/>
+   </div>
   );
 }
 

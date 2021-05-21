@@ -1,7 +1,7 @@
 const { default: styled } = require("styled-components");
 
-const Platform = ({title}) => {
-  const sync1 = "SIGN IN";
+const Platform = ({title, platformButton}) => {
+  // const sync1 = "SIGN UP";
   console.log(title);
   return (
     <Platforms>
@@ -14,7 +14,7 @@ const Platform = ({title}) => {
         perferendis quasi at porro ratione, totam beatae voluptas?
       </p>
 
-      <button>{sync1}</button>
+      <button>{platformButton}</button>
       </div>
       <div className="spacediv">
 
