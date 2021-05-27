@@ -8,7 +8,7 @@ A simplest ecommerce app using Mern Stack
 ---
 ---
 ## Admin
-- [ ] Authentication
+- [x] Authentication
 - [ ] CRUD WIth product
 
 ---
